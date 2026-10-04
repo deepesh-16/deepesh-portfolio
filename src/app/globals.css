@@ -1,0 +1,52 @@
+@layer theme, base, mui, components, utilities;
+@import "tailwindcss";
+
+/* Colors come from the MUI theme (src/theme/theme.ts). */
+@theme inline {
+  --color-paper: var(--mui-palette-background-default);
+  --color-card: var(--mui-palette-background-paper);
+  --color-ink: var(--mui-palette-text-primary);
+  --color-soft: var(--mui-palette-text-secondary);
+  --color-line: var(--mui-palette-divider);
+  --color-teal: var(--mui-palette-primary-main);
+  --color-pink: #ff4f8b;
+  --color-orange: #ff8a1f;
+  --color-sky: #1fa8e8;
+  --color-mint: #12b886;
+  --color-stamp: var(--mui-palette-error-main);
+  --font-display: "Bricolage Grotesque Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid var(--mui-palette-primary-main); outline-offset: 3px; border-radius: 2px; }
+
+/* Hero diagram: custom CSS where utilities do not reach (SVG parts and keyframes) */
+.flow .edge { fill: none; stroke: var(--mui-palette-text-secondary); stroke-width: 2; stroke-linecap: round; }
+.flow .node rect { fill: var(--mui-palette-background-paper); stroke: var(--mui-palette-text-primary); stroke-width: 1.6; }
+.flow .node text { font-family: var(--font-display); font-weight: 600; font-size: 14px; fill: var(--mui-palette-text-primary); }
+.flow .node .sub { font-weight: 400; font-size: 12px; fill: var(--mui-palette-text-secondary); }
+.flow .node.core rect { stroke: var(--mui-palette-primary-main); stroke-width: 2.4; }
+.flow .node.tool rect { stroke-dasharray: 4 3; }
+.flow .dot { fill: var(--mui-palette-primary-main); }
+.flow .guilloche { stroke: var(--mui-palette-divider); }
+.flow .stamp { opacity: 0; animation: stamp 0.35s ease-out 3.2s forwards; }
+.flow .stamp rect { fill: none; stroke: var(--mui-palette-error-main); stroke-width: 2.5; }
+.flow .stamp text { font-family: var(--font-display); font-weight: 800; font-size: 15px; letter-spacing: 0.08em; fill: var(--mui-palette-error-main); }
+
+@keyframes stamp {
+  from { opacity: 0; transform: translate(642px, 40px) rotate(-8deg) scale(1.5); }
+  to   { opacity: 1; transform: translate(642px, 40px) rotate(-8deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flow .stamp { animation: none; opacity: 1; }
+  .flow .dot { display: none; }
+}
+
+/* Skill tiles: muted icon, brand color on hover */
+.skill-tile { color: var(--mui-palette-text-secondary); transition: border-color 0.2s, color 0.2s; }
+.skill-tile span { color: var(--mui-palette-text-primary); }
+.skill-tile:hover { color: var(--tile); border-color: var(--tile); }
