@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import ThemeToggle from "./ThemeToggle";
 import { profile, sections } from "@/data/profile";
 
 export default function SideNav() {
@@ -60,7 +59,7 @@ export default function SideNav() {
           </ul>
         </nav>
 
-        <ul className="mt-5 flex list-none items-center gap-5 p-0 md:mt-8">
+        <ul className="mt-5 flex list-none gap-5 p-0 md:mt-8">
           <li>
             <MuiLink href={`mailto:${profile.email}`} aria-label="Email" className="!text-ink">
               <EmailOutlinedIcon />
@@ -78,9 +77,6 @@ export default function SideNav() {
               </MuiLink>
             </li>
           )}
-          <li>
-            <ThemeToggle />
-          </li>
         </ul>
       </div>
     </aside>

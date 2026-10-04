@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import SideNav from "@/components/SideNav";
+import ThemeToggle from "@/components/ThemeToggle";
 import FlowDiagram from "@/components/FlowDiagram";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -14,6 +15,9 @@ export default function Home() {
       <a href="#main" className="absolute -top-16 left-4 z-10 bg-ink px-4 py-2 text-paper focus:top-4">
         Skip to content
       </a>
+      <div className="fixed top-4 right-4 z-20 rounded-full border border-line bg-card shadow-sm">
+        <ThemeToggle />
+      </div>
       <SideNav />
       <main id="main" className="max-w-[48rem] px-5 pt-10 pb-24 md:px-12 md:pt-12">
         <section id="top">
